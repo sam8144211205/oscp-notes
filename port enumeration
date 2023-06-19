@@ -1,0 +1,96 @@
+###########################################################FTP###############################################################
+Ftp= (1) check anonymous login is allowed or not
+           cd /usr/share/nmap/scripts
+           ls | grep ftp
+           nmap --script=ftp-anon.nse -p 21 <ip>
+
+  (2) check service version
+      searchsploit 
+      exploitdb
+      manually
+ 
+	(3) If nse writable 
+      shell.php put
+      if .sh file exists
+      then we put a .sh file for rev connection
+ 
+  (4)check ftp vuln
+     nmap --script vuln -p 21 <ip>
+
+##############################################################ssh##############################################################
+Ssh= (1) run brute.nse scripts
+               nmap --script=brute.nse -p 22 <ip>
+
+         (2)check version exploit
+              searchsploit
+              exploit db
+             manually
+
+          (3) if we find any id_rsa file 
+                chmod id_rsa 600
+                ssh -I id_rsa tom@<ip>
+           
+            (4)password brute
+                  hydra -l <user> -P <password lists> <Ip> -t 4 ssh
+              
+ ###########################################################nfs#################################################################
+ Nfs = if nfs port is open 
+          mount file system
+          
+         showmount -e
+                              If you find anything you can mount it like this:
+                              mount 10.11.1.111:/ /tmp/NFS
+                              mount -t 10.11.1.111:/ /tmp/NFS
+########################################################ajp3########################################################################
+if ajp3 port is open then-------- 1)------ ajpshooter.py check in github
+
+#########################################################mysql#######################################################################
+if mysql port is open       ------mysql --host=192.168.0.103 -u root -p     login with out password 
+          
+                                   if its didn't allowed with out password
+                                   then we bruteforce the pass 
+                                   hydra -l root -/usr/share/wordlists/rockyou.txt  <ip> -t 4 mysql
+
+
+
+
+If we login as a root user then we can change the databaseas
+
+###########################################################smtp######################################################################
+Smtp= if smtp port is open then we 
+           use   smtp-enum-user tool
+
+############################################################smb#######################################################################
+Smb= if smb port is open 
+          (1) run enum4linux -a <ip>
+          (2)smbclient -L <IP>
+                   //<ip>/anonymous
+                   //<ip>/helios               /                  #//<ip>/helios -U helios
+                   (3) check anonymous login allowed or not
+            (4) version exploit
+          (5)vuln check 
+ 
+ ############################################################squid proxy###############################################################
+ Add proxy in firefox proxy setting    http
+And access the http
+
+
+All enumerationlike http
+
+##############################################################http######################################################################
+if http port is open---------then check the http web page          ----add the domain name in /etc/hosts
+                                              check view source page
+                                              check robots.txt,.htpasswd,
+                                              directory brute------gobuster dir -u http://<ip> -w /usr/share/dirbuster/wordlists/medium
+                              
+                                               dirb http://<iip>
+                                               dirbuster
+                                               feroxbuster --url <ip>
+                         
+                                                nikto -h <ip>
+                                                parameter brute force 
+
+
+
+
+ 
