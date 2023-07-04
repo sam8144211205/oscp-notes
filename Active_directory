@@ -1,0 +1,33 @@
+##################################################################################active directory######################################################################################
+
+###################################################################################AD BREACHING#########################################################################################
+
+----------------------------------------OSINT and PHISHING--------------------------------
+
+1)stak overflow
+2)devloper upload script on github
+3)haveibeenpawned
+
+--------------------------------NTLM authentication services for breaching----------------------
+
+.
+.
+
+----------------------------------Bruteforce and Password Spreying---------------------------------
+
+1)bruteforce=(1) user and passwod (infinity)
+2)spreying attack=(infinity) user but (1) Password
+
+(1)Bruteforce Command and Tools
+
+
+(2)Password Spreying Command and Tools
+Tools=ntlm_passwordssprey.py
+python3 ntlm_passwordsprey.py -u usernames.txt -f za.tryhackme.com -P <password> -a <url>
+
+
+
+
+
+
+
