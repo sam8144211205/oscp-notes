@@ -1,0 +1,66 @@
+##########################################AUTOMATED TOOLS#########################################
+
+linpeas.sh
+send linpeas.sh to the target machine /tmp directory
+chmod u+x linpeas.sh
+./linpeas.sh
+
+
+###########################################KERNAL EXPLOIT##########################################
+
+uname -a
+search kernel version exploit=  searchsploit
+                                exploit db
+                                manuallly 
+
+it's always on .c extention file
+
+gcc <.c file> -o abc -w
+
+If any error via gcc 
+Check the path
+Echo $PATH
+Rearrange the path
+
+
+&&
+
+
+
+############################################SUDO -L##################################################
+
+sudo -l
+if (ALL) THEN type sudo and got privesec
+&&
+and search on gtfobins
+
+
+##############################################SUID####################################################
+
+find / -type f -perm -04000 -ls 2>/dev/null
+
+search on gtfobins
+
+###############################################capabilites###########################################
+
+Getcap -r -a  2>/dev/null
+
+search on gtfobins
+
+################################################ CRONTAB #############################################
+
+cat /etc/crontab
+
+If any thing fond 
+Upload a .sh rev shell and restart the machine
+
+#################################################PATH##################################################
+
+
+
+
+
+
+
+
+
