@@ -1,0 +1,94 @@
+################################################################ ACTIVE DIR ENUM ############################################################
+
+there are 4 type to enum active directory
+
+1.MMC (Microsoft Management Console)
+2.Command Promet
+3.Powershell
+4.Bloodhound
+
+################################################################ MMC ########################################################################
+
+MMC is the graphically way to enum AD
+
+############################################################### CMD #########################################################################
+
+
+USER-
+
+1. net user /domain = for check all domain user
+2. net user suman.sam /domain = for check a particular domain user details
+
+
+GROUP-
+
+1.net group /domain = for check all group
+2.net group "subrat 1 Admins" /domain = for check particular group details
+
+
+PASSWORD POLICY-
+
+1.net accounts /domain
+
+
+################################################################### POWERSHELL ###############################################################
+
+USER-
+
+1.We can use the "Get-ADUser" cmdlet to enumerate AD users: 
+2.Get-ADUser -Identity <USER_NAME> -Server za.tryhackme.com -Properties * = for check a particular domain user details
+3.Get-ADUser -Filter 'Name -like "*stevens"' -Server za.tryhackme.com | Format-Table Name,SamAccountName -A = for check all "steven" accounts in a format
+
+
+GROUP-
+
+1.We can use the "Get-ADGroup" cmdlet to enumerate AD groups
+2.Get-ADGroup -Identity <GROUP_NAME> -Server za.tryhackme.com = for check a particular group details
+
+3.We can also enumerate group membership using the Get-ADGroupMember cmdlet:
+4. Get-ADGroupMember -Identity <GROUP_NAME> -Server za.tryhackme.com = FOR check a particular group member
+
+
+AD OBJECT-
+
+1.$ChangeDate = New-Object DateTime(2022, 02, 28, 12, 00, 00) =
+  Get-ADObject -Filter 'whenChanged -gt $ChangeDate' -includeDeletedObjects -Server za.tryhackme.com = for check all change details like password etc.
+2. Get-ADObject -Filter 'badPwdCount -gt 0' -Server za.tryhackme.com  = for bad password count
+
+
+DOMAINS-
+
+1.We can use Get-ADDomain to retrieve additional information about the specific domain:
+2.Get-ADDomain -Server za.tryhackme.com = for check domains details
+
+
+ALTERING AD OBJECT-
+
+1.However, we will show an example of this by force changing the password of our AD user by using the Set-ADAccountPassword cmdlet:
+2.Set-ADAccountPassword -Identity <USER_NAME> -Server za.tryhackme.com -OldPassword (ConvertTo-SecureString -AsPlaintext "old" -force) -NewPassword (ConvertTo-SecureString -AsPlainText "new" -Force) = FOR SET AD ACCOUNT PASSWORD
+
+
+
+########################################################################### BLOOD HOUND ########################################################
+
+SHARPHOUND-
+
+1.sharphound is a data collector 
+2. there are three different type of data collecter=Sharphound.ps1
+                                                    Sharphound.exe
+                                                    Azurehound.ps1
+ 
+NOTE:: BLOODHOUND AND SHARPHOUND VERSION MUST BE SAME FOR BETTER RESULT
+
+3.Sharphound.exe --CollectionMethods all --Domain za.tryhackme.com --ExcludeDCs = for collect data
+4.scp <AD Username>@THMJMP1.za.tryhackme.com:C:/Users/<AD Username>/Documents/<Sharphound ZIP> . = scp in kali machine for transfer zip file
+5.neo4j console start = for start neo4j     (NOTE:: neo4j is a database)
+  neo4j::suman
+6.bloodhound = for start bloodhound
+7.upload .zip file in upload data section
+
+8.THEN ENUMERATE                                          
+
+
+
+
